@@ -3,9 +3,9 @@ import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import "../builder-registry";
 
 // Builder Public API Key set in .env file
-builder.init(process.env.REACT_APP_PUBLIC_BUILDER_KEY!);
+builder.init("YOUR_PUBLIC_BUILDER_KEY");
 
-export default function FigmaPlugin() {
+export default function BuilderPage() {
   const isPreviewingInBuilder = useIsPreviewing();
   const [notFound, setNotFound] = React.useState(false);
   const [content, setContent] = React.useState(null);
@@ -37,9 +37,7 @@ export default function FigmaPlugin() {
   // If no page is found, return
   // a 404 page from your code.
   if (notFound && !isPreviewingInBuilder) {
-    return (
-      <div>404 Page Not Found: {process.env.REACT_APP_PUBLIC_BUILDER_KEY}</div>
-    );
+    return <div>404 Page Not Found</div>;
   }
 
   // return the page when found
