@@ -14,6 +14,8 @@ const routes = [
 
 // Only add the Figma plugin route in development
 if (process.env.NODE_ENV === "development") {
+  import("./builder-registry");
+
   routes.push({
     path: "/figma-imports",
     element: <FigmaPlugin />,

@@ -1,6 +1,5 @@
 import React from "react";
 import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
-import "../builder-registry";
 
 // Builder Public API Key set in .env file
 builder.init(process.env.REACT_APP_PUBLIC_BUILDER_KEY!);
