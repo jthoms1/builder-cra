@@ -3,7 +3,7 @@ import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import "../builder-registry";
 
 // Builder Public API Key set in .env file
-builder.init("YOUR_PUBLIC_BUILDER_KEY");
+builder.init(process.env.REACT_APP_PUBLIC_BUILDER_KEY!);
 
 export default function BuilderPage() {
   const isPreviewingInBuilder = useIsPreviewing();

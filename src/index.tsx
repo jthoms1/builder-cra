@@ -2,24 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Root from "./routes/root";
 import FigmaPlugin from "./routes/figma-plugin";
-import BuilderPage from "./routes/builder-page";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: "/",
     element: <Root />,
   },
-  {
+];
+
+// Only add the Figma plugin route in development
+if (process.env.NODE_ENV === "development") {
+  routes.push({
     path: "/figma-imports",
     element: <FigmaPlugin />,
-  },
-  {
-    path: "/builder-demo",
-    element: <BuilderPage />,
-  },
-]);
+  });
+}
+
+const router = createBrowserRouter(routes);
 
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Failed to find the root element");
